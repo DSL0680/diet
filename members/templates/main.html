@@ -1,0 +1,45 @@
+{% extends "master.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'myfirst.css' %}">
+</head>
+
+<body>
+  {% block title %}
+  Die.T
+  {% endblock %}
+
+  {% block content %}
+  <div class="main">
+
+    <section>
+      <br>
+
+      <img src="static/images/diet.jpg" height="500" width="1000">
+
+      <form class="main-form">
+        <h2>커뮤니티</h2>
+        <p>자신의 식단과 운동 방법을 회원들과 공유 해보세요!</p>
+        <a href="{% url 'community' %}" class="button">커뮤니티</a>
+
+      </form>
+
+        <form class="main-form">
+          <h2>다이어리</h2>
+          <p>"나만의 다이어리, 나만의 성장일기"를 시작해보는 것은 어떨까요?</p>
+          <a href="{% url 'diary_list' %}" class="button">다이어리</a>
+      </form>
+
+      <form class="main-form"></form>
+
+    </section>
+
+  </div>
+  {% endblock %}
+</body>
+
+</html>

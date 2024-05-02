@@ -1,0 +1,33 @@
+{% extends "master.html" %}
+<title>
+  {% block title %}
+  Die.T
+  {% endblock %}</title>
+
+
+{% block content %}
+<h1 class="diary-h1">다이어리</h1>
+<ul class="diary-ul">
+  {% for diary in diaries %}
+  <a href="{% url 'diary_detail' diary.id %}">
+    <li class="diary-post">
+      <h2>{% load tz %}
+
+        {% timezone "Asia/Seoul" %}
+        {{ diary.date|date:"Y년 m월 d일" }}
+        {% endtimezone %}
+      </h2>
+      <p>{{ diary.content }}</p>
+    </li>
+  </a>
+  {% empty %}
+  <form class="diary-form" method="post">
+    <p>다이어리 항목이 없습니다.</p>
+
+    <br>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'diary_create' %}" class="diary-button">새 다이어리 작성</a>
+</form>
+{% endblock %}

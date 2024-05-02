@@ -1,0 +1,27 @@
+<html>
+  {% extends "master.html" %}
+  
+  
+  <title>
+  {% block title %}
+    Die.T
+  {% endblock %}</title>
+  
+  <body>
+    {% block content %}
+    
+    <h1 class="search-videos-h1">운동 영상 검색</h1>
+    <form class="search-videos-form" method="post">
+      {% csrf_token %}
+      <input type="text" name="query" placeholder="검색어를 입력하세요">
+      <button class="search-videos-button" type="submit">검색</button>
+    </form>
+    
+    <form class="video-form">
+      <p class="food-p">검색 결과가 없습니다.</p>
+    </form>
+    
+    {% endblock %}
+  </body>
+</html>
+

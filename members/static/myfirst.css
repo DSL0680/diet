@@ -1,0 +1,647 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font: 600 18px 'Source Sans Pro', sans-serif;
+  letter-spacing: 0.64px;
+  color: #587468;
+  background-color: rgb(255, 255, 255);
+
+}
+
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #59b188;
+  text-align: center;
+  /* 푸터 내용을 가운데 정렬 */
+  color: white; /* 푸터 텍스트 색상 지정 */
+  padding: 15px; /* 푸터 내 여백 지정 */
+}
+
+
+.topnav {
+  display: flex;
+  justify-content: space-between; /* h1과 form을 양쪽에 정렬 */
+  background-color: #59b188;
+  color: #ffffff;
+  padding: 10px;
+  align-items: center;
+}
+
+.topnav nav {
+  flex-grow: 1; /* 남은 공간을 모두 차지하도록 함 */
+}
+
+.topnav a:link,
+.topnav a:visited {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.topnav a:hover,
+.topnav a:active {
+  text-decoration: underline;
+}
+
+
+
+.topnav h1,
+.topnav form {
+  margin: 0; /* 기본 마진 제거 */
+}
+
+.topnav h1 {
+  font-size: 200%;
+}
+
+.master-ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  justify-content: space-around;
+  white-space: nowrap;   /* 줄바꿈 방지 설정 */
+  text-align: center; /* ul을 가운데 정렬 */
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  justify-content: flex-end;
+  background-size: 50px 60px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform .25s;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 5px;
+}
+
+.link:hover {
+  transform: scale(1.0);
+}
+
+a:link,
+a:visited {
+  color: #ffffff;
+}
+
+img {
+  max-width: 100%;
+  /* 부모 요소에 맞게 이미지 크기 조절 */
+  height: auto;
+  /* 이미지의 세로 비율 유지 */
+}
+
+
+@media (max-width: 724px) {
+  .master-ul {
+    flex-direction: column;
+    /* 화면이 600px 이하로 줄어들면 세로로 정렬 */
+  }
+
+  .link {
+    margin-right: 0;
+    /* 세로 정렬 시 간격 없애기 */
+  }
+
+  .logout-button {
+    margin-right: 0;
+    /* 세로 정렬 시 간격 없애기 */
+  }
+
+  form, input, content {
+    margin-right: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------------------------------------------------- */
+
+
+/* 메인 화면 */
+
+
+.main {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #587468;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: smaller;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+}
+
+.main-form {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
+  margin-bottom: auto;
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------------- */
+
+
+/* 로그아웃 버튼 */
+.logout-button[type="submit"] {
+  padding: 8px 16px;
+  background-color: #59b188;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  /* 줄바꿈 방지 설정 */
+  font-size: 90%;
+}
+
+.logout-button[type="submit"]:hover {
+  background-color: #00796b;
+}
+
+
+
+/* --------------------------------------------------------------------------------------------------------------------- */
+
+
+/* 운동 영상 */
+.search-videos-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-videos-button[type="submit"] {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1fa396;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.search-videos-button:hover {
+  background-color: #00796b;
+}
+
+.search-videos-h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #587468;
+
+}
+
+.search-videos-result-h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #587468;
+
+}
+
+.search-videos-result-button {
+  margin-left: 2%;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #587468;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.video {
+  display: flex;
+  align-items: center;
+}
+
+.video h3,
+.video p {
+  flex: 1;
+  margin-right: 5px;
+}
+
+.video iframe {
+  flex-shrink: 0;
+}
+
+
+.play {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  border: 3px solid #4f9b7a;
+  width: 1000px;
+  height: 500px;
+  padding: 10px;
+  list-style: none; /* 목록 기호 제거 */
+  border-radius: 5px; /* 테두리를 둥글게 만듦 */
+}
+
+
+li.play h3 {
+  font-size: 18px; /* 제목 텍스트 크기 설정 */
+  margin-top: 0; /* 제목 위 여백 제거 */
+  margin-bottom: 50px; /* 제목 아래 여백 설정 */
+  color: #000000;
+}
+
+li.play iframe {
+  width: 100%; /* 너비 100%로 설정하여 부모 요소에 맞춤 */
+  height: 100%; 
+  border: 1px solid #ddd; /* 테두리 추가 (선택사항) */
+  border-radius: 5px; /* 테두리를 둥글게 만듦 */
+}
+
+
+/* 검색 결과 없음 스타일 */
+.empty-message {
+  color: #999;
+}
+
+.video-form {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.video-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+
+/* --------------------------------------------------------------------------------------------------------------------- */
+
+
+/* 커뮤니티 */
+.community-h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #587468;
+
+}
+
+.community-post {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 2%;
+  border: 1px solid #ccc;
+  /* 테두리 스타일 및 색상 설정 */
+  border-radius: 5px;
+  /* 테두리의 둥근 모서리 설정 */
+}
+
+.community-post h3 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.community-post p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.community-post a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.community-post a:hover {
+  text-decoration: underline;
+}
+
+.community-button {
+  margin-left: 2%;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #587468;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.community-form {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-right: 30%;
+  margin-left: 30%;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+.community-form p a {
+  color: rgb(58, 145, 116);
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------------- */
+
+
+/* 다이어리 */
+.diary-post {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 2%;
+  border: 1px solid #ccc;
+  /* 테두리 스타일 및 색상 설정 */
+  border-radius: 5px;
+  /* 테두리의 둥근 모서리 설정 */
+}
+
+.diary-post p {
+  color: #666;
+  font-size: 14px;
+  margin: auto;
+}
+
+.diary-post h2 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.diary-h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #587468;
+
+}
+
+.diary-button {
+  margin-left: 2%;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #587468;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.diary-form {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-right: 30%;
+  margin-left: 30%;
+  margin-bottom: 100px;
+  width: auto;
+  margin-top: 50px;
+  
+
+}
+
+.cancel {
+  text-decoration: none;
+}
+
+.diary-form a {
+  margin: auto;
+  font-size: smaller;
+}
+
+.diary-form p a {
+  color: rgb(58, 145, 116); 
+}
+
+
+
+
+
+
+
+
+/* --------------------------------------------------------------------------------------------------------------------- */
+
+/* 음식 칼로리 */
+.food-list {
+  border: 1px solid #ccc;
+  /* 테두리 스타일 및 색상 설정 */
+  border-radius: 5px;
+  /* 테두리의 둥근 모서리 설정 */
+  padding: 10px;
+  /* 테두리와 내용 사이의 여백 설정 */
+  margin-bottom: 10px;
+  /* 각 요소 사이의 간격 설정 */
+  list-style-type: none;
+  margin-right: 2%;
+}
+
+.food-name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.nutrient-label {
+  font-weight: bold;
+}
+
+.nutrient-value {
+  margin-right: 5px;
+}
+
+.food-h1,
+.food-data {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #587468;
+
+}
+
+.search-food-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-food-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1fa396;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.search-food-button:hover {
+  background-color: #00796b;
+}
+
+.food-p {
+  text-align: center;
+}
+
+.food-form {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------------------------------------------------------------------------------------------------------- */
+
+
+/* 회원가입 */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sign-form {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 1.5%;
+}
+
+
+.sign-button[type="submit"] {
+  background-color: #009688;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sign-button[type="submit"]:hover {
+  background-color: #00796b;
+}
+
+.error {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+
+.login-h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.password-input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+}
+
+input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+}
+
+
+
+
+/* --------------------------------------------------------------------------------------------------------------------- */
+
+/* 로그인 */
+
+.login-form {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-button[type="submit"] {
+  background-color: #009688;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-button[type="submit"]:hover {
+  background-color: #00796b;
+}
+
+.error {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.signup-link a{
+color: #00796b;
+display:inline-block;
+}
+
+

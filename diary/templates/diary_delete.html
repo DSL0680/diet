@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+{% block title %}
+Die.T
+{% endblock %}
+{% block content %}
+  <h1>다이어리 삭제</h1>
+<form class="diary-form" method="post">
+  <p>정말로 다이어리를 삭제하시겠습니까?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button class="button" type="submit">삭제</button>
+    <a class="diary-button" href="{% url 'diary_detail' diary.id %}">취소</a>
+  </form>
+</form>
+{% endblock %}

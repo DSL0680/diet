@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+{% block title %}
+Die.T
+{% endblock %}
+{% block content %}
+  <h1>새 다이어리 작성</h1>
+  <form class="diary-form" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+
+
+  <br>
+  <br>
+  <button class="button" type="submit">저장</button>
+  <a class="diary-button" href="{% url 'diary_list' %}">취소</a>
+</form>
+{% endblock %}

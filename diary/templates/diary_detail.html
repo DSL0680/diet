@@ -1,0 +1,25 @@
+{% extends "master.html" %}
+{% block title %}
+Die.T
+{% endblock %}
+{% block content %}
+<form class="diary-form" method="post">
+  <h1>{% load tz %}
+
+    {% timezone "Asia/Seoul" %}
+    {{ diary.date|date:"Y년 m월 d일" }}
+    {% endtimezone %}
+  </h1>
+
+  <p>{{ diary.content }}</p>
+  {% if diary.image %}
+  <img src="{{ diary.image.url }}" alt="Diary Image">
+  {% endif %}
+
+  <br>
+  <br>
+  <a href="{% url 'diary_update' diary.id %}" class="diary-button">수정</a>
+  <a href="{% url 'diary_delete' diary.id %}" class="diary-button">삭제</a>
+  <a href="{% url 'diary_list' %}" class="diary-button">목록으로 돌아가기</a>
+</form>
+{% endblock %}

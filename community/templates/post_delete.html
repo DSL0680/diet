@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+{% block title %}
+Die.T
+{% endblock %}
+{% block content %}
+  <h1>게시물 삭제</h1>
+<form class="community-form" method="post">
+  <p>정말로 게시물을 삭제하시겠습니까?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button class="button" type="submit">삭제</button>
+    <a href="{% url 'view_post' id=post.id %}" class="button">취소</a>
+  </form>
+</form>
+{% endblock %}

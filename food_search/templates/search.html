@@ -1,0 +1,58 @@
+{% extends "master.html" %}
+
+<title>
+    {% block title %}
+    Die.T
+    {% endblock %}</title>
+
+
+{% block content %}
+
+
+<h1 class="food-h1">음식 검색</h1>
+<form class="search-food-form" method="post" action="{% url 'food_search:search' %}">
+    {% csrf_token %}
+    <input type="text" name="search_query" placeholder="검색어를 입력하세요">
+    <button class="search-food-button" type="submit">검색</button>
+</form>
+
+<form class="food-form">
+{% if food_data %}
+<h2 class="food-data">검색 결과:</h2>
+<ul>
+    {% for food in food_data %}
+    <li class="food-list">
+        <div class="food-name">{{ food.DESC_KOR }}</div>
+        <br>
+        <div class="SERVING_SIZE">총 내용량(g): {{ food.SERVING_SIZE }}g</div>
+        <br>
+        <div class="calorie">열량(kcal)(1회제공량당): {{ food.NUTR_CONT1 }} kcal</div>
+        <br>
+        <div class="nutrients">
+            <span class="nutrient-label">영양성분: &nbsp;</span>
+            {% if food.NUTR_CONT2 %}
+            <span class="nutrient-value">탄수화물(g)(1회제공량당): {{ food.NUTR_CONT2 }}g &nbsp;</span>
+            {% endif %}
+            {% if food.NUTR_CONT3 %}
+            <span class="nutrient-value">단백질(g)(1회제공량당): {{ food.NUTR_CONT3 }}g &nbsp;</span>
+            {% endif %}
+            {% if food.NUTR_CONT4 %}
+            <span class="nutrient-value">지방(g)(1회제공량당): {{ food.NUTR_CONT4 }}g</span>
+            {% endif %}
+        </div>
+    </li>
+    <br>
+    {% endfor %}
+</ul>
+
+{% else %}
+{% if error_message %}
+<p>{{ error_message }}</p>
+{% else %}
+<p class="food-p">검색 결과가 없습니다.</p>
+{% endif %}
+{% endif %}
+
+
+</form>
+{% endblock %}

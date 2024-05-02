@@ -1,0 +1,34 @@
+{% extends "master.html" %}
+
+{% block title %}
+Die.T
+{% endblock %}
+
+{% block content %}
+<form class="community-form" method="post">
+  <h1>{{ post.title }}</h1>
+
+  <p>작성자: {{ post.author.username }}</p>
+  <p>작성일: {% load tz %}
+
+    {% timezone "Asia/Seoul" %}
+    {{ post.created_at|date:"Y년 m월 d일 H:i:s" }}
+    {% endtimezone %}
+  </p>
+  <br>
+  <p>{{ post.content }}</p>
+
+
+  {% if post.image %}
+  <img src="{{ post.image.url }}" alt="Post Image">
+  {% endif %}
+  <br>
+  <br>
+  {% if post.author == user %} <!-- 현재 사용자가 게시물의 작성자인지 확인 -->
+  <a href="{% url 'post_edit' id=post.id %}" class="button">수정</a>
+  <a href="{% url 'post_delete' id=post.id %}" class="button">삭제</a>
+  {% endif %}
+
+  <a href="{% url 'community' %}" class="button">돌아가기</a>
+</form>
+{% endblock %}

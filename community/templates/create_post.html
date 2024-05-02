@@ -1,0 +1,21 @@
+{% extends "master.html" %}
+
+{% block title %}
+Die.T
+{% endblock %}
+
+{% block content %}
+<h1>게시물 작성</h1>
+
+<form class="community-form" method="POST" action="{% url 'create_post' %}" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <br>
+  <br>
+
+
+  <input class="button" type="submit" value="작성">
+  <a href="{% url 'community' %}" class="button">돌아가기</a>
+</form>
+
+{% endblock %}

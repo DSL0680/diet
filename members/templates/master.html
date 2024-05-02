@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'myfirst.css' %}">
+</head>
+
+<body>
+
+  <div class="topnav">
+
+    <nav>
+
+
+
+      <ul class="master-ul">
+        <li class="link"><h1><a href="/">Die.T</a></h1></li>
+        <li class="link"><a href="{% url 'diary_list' %}">다이어리</a></li>
+        <li class="link"><a href="{% url 'food_search:search' %}">음식 칼로리&영양성분</a></li>
+        <li class="link"><a href="{% url 'search:search_videos' %}">운동</a></li>
+        <li class="link"><a href="{% url 'community' %}">커뮤니티</a></li>
+
+      </ul>
+
+
+    </nav>
+
+    {% if user.is_authenticated %}
+    <form method="post" action="{% url 'logout' %}">
+      {% csrf_token %}
+      <button class="logout-button" type="submit"><img src="\static\images\log.png" height="50" width="50"><br>{{ user.username }}님 (로그아웃)</button>
+    </form>
+    {% else %}
+    <h2><a href="{% url 'login' %}" class="login-link">로그인</a></h2>
+    {% endif %}
+
+  </div>
+
+  {% block content %}
+  {% endblock %}
+  <footer>죽기 전에 다이어트 성공 도전!!!</footer>
+</body>
+
+
+
+</html>

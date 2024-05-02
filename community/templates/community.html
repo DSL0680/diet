@@ -1,0 +1,48 @@
+{% extends "master.html" %}
+
+<!DOCTYPE html>
+
+<head>
+
+  <title>
+    {% block title %}
+    Die.T
+    {% endblock %}
+  </title>
+</head>
+
+<body>
+
+
+  {% block content %}
+  <h1 class="community-h1">커뮤니티 게시판</h1>
+
+  {% if posts %}
+  <ul>
+    {% for post in posts %}
+    <a href="{% url 'view_post' id=post.id %}">
+      <li class="community-post">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+        <p>작성자: {{ post.author.username }}</p>
+        <p>작성일: {% load tz %}
+
+          {% timezone "Asia/Seoul" %}
+          {{ post.created_at|date:"Y년 m월 d일 H:i:s" }}
+          {% endtimezone %}
+        </p>
+      </li>
+    </a>
+    {% endfor %}
+  </ul>
+  {% else %}
+
+  <form class="community-form" method="post">
+    <p>게시물이 없습니다.</p>
+  </form>
+  {% endif %}
+
+  <a href="{% url 'create_post' %}" class="community-button">게시물 작성</a>
+  {% endblock %}
+
+</body>

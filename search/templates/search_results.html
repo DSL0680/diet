@@ -1,0 +1,45 @@
+{% extends "master.html" %}
+
+<title>
+  {% block title %}
+  Die.T
+  {% endblock %}
+</title>
+
+{% block content %}
+
+<h1 class="search-videos-result-h1">운동 영상 검색</h1>
+
+
+<form class="search-videos-form" method="post">
+  {% csrf_token %}
+  <input type="text" name="query" placeholder="검색어를 입력하세요">
+  <button class="search-videos-button" type="submit">검색</button>
+</form>
+
+
+<br>
+<br>
+
+
+<form class="video-form">
+  <ul class="video-list">
+    {% for video in videos %}
+    <li class="play">
+
+      <h3>{{ video.snippet.title }}</h3>
+
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.id.videoId }}" frameborder="0"
+        allowfullscreen></iframe>
+
+    </li>
+
+    {% empty %}
+    <li class="play">검색 결과가 없습니다.</li>
+
+    {% endfor %}
+  </ul>
+
+  {% endblock %}
+</form>

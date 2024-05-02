@@ -1,0 +1,71 @@
+{% extends "master.html" %}
+<!DOCTYPE html>
+<html lang="ko">
+  {% block title %}
+        Die.T
+  {% endblock %}
+  {% block content %}
+<head>
+
+  <meta charset="UTF-8">
+  <title>로그인</title>
+
+</head>
+<body>
+  
+  <div class="container">
+    <form class="login-form" method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+
+      <h1 class="login-h1">로그인</h1>
+
+      <label for="username">아이디</label>
+      <input type="text" id="username" name="username" required>
+
+      <br>
+      <br>
+
+      <label for="password">비밀번호</label>
+      <input class="password-input" type="password" id="password" name="password" required>
+
+
+
+      &nbsp; &nbsp; <input class="login-button" type="submit" value="로그인">
+      
+      <br>
+      <br>
+      
+      <div class="signup-link">
+        <a href="/signup"><br>회원가입</a>
+      </div>
+    </form>
+    
+    
+    <div id="login-error">
+      {% if form.errors %}
+        <p class="error">아이디나 비밀번호가 올바르지 않습니다.</p>
+      {% endif %}
+    </div>
+    
+    <script>
+      const form = document.querySelector('form');
+      const loginError = document.getElementById('login-error');
+    
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+    
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+    
+        if (username === '' || password === '') {
+          loginError.textContent = '아이디와 비밀번호를 모두 입력하세요.';
+        } else {
+          form.submit();
+        }
+      });
+    </script>
+    
+  </div>
+</body>
+{% endblock %}
+</html>
