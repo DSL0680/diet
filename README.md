@@ -1,4 +1,4 @@
-### Diet Web Application
+# Diet Web Application
 
 #### 개요
 Diet Web Application은 사용자가 회원가입 및 로그인 후 다양한 다이어트 관련 기능을 활용할 수 있는 웹 애플리케이션입니다. 사용자는 다이어리 작성, 음식 칼로리 및 영양 성분 조회, 운동 영상 제공, 커뮤니티 게시판을 통해 정보를 공유하고 소통할 수 있습니다.
